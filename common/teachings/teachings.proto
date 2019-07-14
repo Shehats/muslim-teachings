@@ -1,0 +1,33 @@
+syntax = "proto3";
+package teachings;
+
+message TeachingRequest {
+    string categorySlug = 1;
+    repeated string text = 2;
+    repeated string mediaBase64 = 3;
+}
+
+message TeachingSlug {
+    string slug = 1;
+}
+
+message EmptyPayload {}
+
+message Teaching {
+    string slug = 1;
+    string categorySlug = 2;
+    repeated string text = 3;
+    repeated string mediaBase64 = 4;
+}
+
+service TeachingService {
+    rpc AddTeachings (stream TeachingRequest) returns (stream TeachingSlug);
+    rpc GetTeachings (EmptyPayload) returns (stream Teaching);
+    rpc UpdateTeachings (stream Teaching) returns (stream Teaching);
+    rpc DeleteTeachings (stream TeachingSlug) returns (EmptyPayload);
+
+    rpc AddTeaching (TeachingRequest) returns (TeachingSlug);
+    rpc GetTeaching (TeachingSlug) returns (Teaching);
+    rpc UpdateTeaching (Teaching) returns (Teaching);
+    rpc DeleteTeaching (TeachingSlug) returns (EmptyPayload);
+}
