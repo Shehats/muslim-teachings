@@ -1,0 +1,99 @@
+syntax = "proto3";
+package quran;
+
+message EmptyPayload {}
+
+message DefaultResponse {
+	enum Status {
+		UNKOWN = 0;
+		OK = 200;
+		CREATED = 201;
+		NO_CONTENT = 204;
+		BAD_REQUEST = 400;
+		UNAUTHORIZED = 401;
+		FORBIDDEN = 403;
+		NOT_FOUND = 404;
+		METHOD_NOT_ALLOWED = 405;
+		GONE = 410;
+		UNPROCESSABLE_ENTITY = 422;
+		INTERNAL_SERVER_ERROR = 500;
+		BAD_GATEWAY = 502;
+	}
+	Status status = 1;
+	string message = 2;
+}
+
+message Tafseer {
+	string tafseerSlug = 1;
+	string language = 2;
+	string tafseer = 3;
+	string citations = 4;
+	string uri = 5;
+	string mediaBase64 = 6;
+}
+
+message AddTafseerRequest {
+	string ayahSlug = 1;
+	Tafseer tafseer = 2;
+}
+
+message Ayah {
+	// surah-ayahnumber
+	string ayahSlug = 1;
+	string text = 2;
+	// Audio mp3 to json utf8
+	repeated string recitation = 3;
+	repeated Tafseer tafseer = 4;
+}
+
+message AddRecitatonToAyahRequest {
+	string ayahSlug = 1;
+	// Audio mp3 to json utf8
+	string recitation = 2;
+}
+
+
+message AddRecitatonToSurahRequest {
+	string surahName = 1;
+	// Audio mp3 to json utf8
+	string recitation = 2;
+}
+
+
+message Surah {
+	string sruhName = 1;
+	repeated Ayah ayah = 2;
+}
+
+// chapter is Goza`
+message Chapter {
+	int32 chapterId = 1;
+	repeated Surah surahs = 2;
+}
+
+message Quran {
+	repeated Surah surahs = 1;
+}
+
+message GetChapterRequest {
+	int32 chapterId = 1;
+}
+
+message GetSurahRequest {
+	string surahName = 1;
+}
+
+message GetAyahRequest {
+	string ayahSlug = 1;
+}
+
+service QuranService {
+	// Getters
+	rpc GetQuran (EmptyPayload) returns (Quran);
+	rpc GetAyah (GetAyahRequest) returns (Ayah);
+	rpc GetSurah (GetSurahRequest) returns (Surah);
+	rpc GetChapter (GetChapterRequest) returns (Chapter);
+	rpc AddTafseer (AddTafseerRequest) returns (DefaultResponse);
+	rpc AddRecitatonToSurahStream (stream AddRecitatonToAyahRequest) returns (stream DefaultResponse);
+	rpc AddRecitatonToSurah (AddRecitatonToSurahRequest) returns (DefaultResponse);
+}
