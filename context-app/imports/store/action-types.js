@@ -1,0 +1,7 @@
+export const REQUEST_DATA = "REQUEST_DATA";
+export const REQUEST_LIST_DATA = "REQUEST_LIST_DATA";
+export const REQUEST_ID_DATA = "REQUEST_ID_DATA";
+export const RECIEVE_DATA = "RECIEVE_DATA";
+export const RECIEVE_LIST_DATA = "RECIEVE_LIST_DATA";
+export const RECIEVE_ID_DATA = "RECIEVE_ID_DATA";
+export const CACHE_DATA = "CACHE_DATA";

@@ -1,0 +1,16 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-env",
+    "@babel/preset-es2017"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "react-hot-loader/babel",
+    "react-html-attrs",
+    "@babel/plugin-transform-react-inline-elements",
+    {
+      "loose": true
+    }
+  ]
+}
