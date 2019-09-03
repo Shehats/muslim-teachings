@@ -2,51 +2,49 @@ package controllers
 
 import (
 	"net/http"
-
-	"github.com/gin-gonic/gin"
 )
 
 // GetTeachings gets all teachings
-func GetTeachings(context *gin.Context) {
-	context.JSON(http.StatusOK, gin.H{})
+func GetTeachings(w http.ResponseWriter, r *http.Request) {
+
 }
 
 // AddTeachings adds teaching
-func AddTeachings(context *gin.Context) {
+func AddTeachings(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // UpdateTeachings updates teachings
-func UpdateTeachings(context *gin.Context) {
+func UpdateTeachings(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // DeleteTeachings deletes teachings
-func DeleteTeachings(context *gin.Context) {
+func DeleteTeachings(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // GetTeaching gets teaching
-func GetTeaching(context *gin.Context) {
-	context.JSON(http.StatusOK, gin.H{})
+func GetTeaching(w http.ResponseWriter, r *http.Request) {
+
 }
 
 // AddTeaching adds teaching
-func AddTeaching(context *gin.Context) {
+func AddTeaching(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // UpdateTeaching updates teaching
-func UpdateTeaching(context *gin.Context) {
+func UpdateTeaching(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // DeleteTeaching deletes teaching
-func DeleteTeaching(context *gin.Context) {
+func DeleteTeaching(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // SearchTeaching searches context via params
-func SearchTeaching(context *gin.Context) {
+func SearchTeaching(w http.ResponseWriter, r *http.Request) {
 
 }

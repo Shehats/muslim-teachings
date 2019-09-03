@@ -1,25 +1,23 @@
 package controllers
 
-import (
-	"github.com/gin-gonic/gin"
-)
+import "net/http"
 
 // GetHadiths gets all hadiths
-func GetHadiths(context *gin.Context) {
+func GetHadiths(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // GetHadithsByTopic gets hadiths by topic
-func GetHadithsByTopic(context *gin.Context) {
+func GetHadithsByTopic(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // GetHadith gets hadiths
-func GetHadith(context *gin.Context) {
+func GetHadith(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // SearchHadiths searches hadiths on context
-func SearchHadiths(context *gin.Context) {
+func SearchHadiths(w http.ResponseWriter, r *http.Request) {
 
 }

@@ -1,20 +1,18 @@
 package controllers
 
-import (
-	"github.com/gin-gonic/gin"
-)
+import "net/http"
 
 // GetQuran gets the entire quran
-func GetQuran(context *gin.Context) {
+func GetQuran(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // GetSurah gets a surah in the quran
-func GetSurah(context *gin.Context) {
+func GetSurah(w http.ResponseWriter, r *http.Request) {
 
 }
 
 // GetAyat gets ayat from to in a surah in the quran
-func GetAyat(context *gin.Context) {
+func GetAyat(w http.ResponseWriter, r *http.Request) {
 
 }
